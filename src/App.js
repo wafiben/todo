@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import List from "./components/List";
+import Form from "./components/Form";
 
 function App() {
+  const [table, setTable] = useState(["mohammed", "assia", "rania"]);
+  const [input, setInput] = useState("");
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setInput(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTable([...table, input]);
+    setInput("");
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Form
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        input={input}
+      />
+      <List users={table} />
+    </>
   );
 }
 

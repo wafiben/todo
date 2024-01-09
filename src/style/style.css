@@ -1,0 +1,15 @@
+.card{
+    background-color: gray;
+    color:white;
+    width:20rem;
+    text-align: center;
+}
+
+.list-bloc{
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    display: flex;
+    justify-content: space-around;
+    margin-top:2px
+}
